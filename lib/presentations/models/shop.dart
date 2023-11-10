@@ -1,12 +1,14 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_minimal_ecommerce/presentations/models/product.dart';
 
-class Shop {
+class Shop extends ChangeNotifier {
   // product for sale
   final List<Product> _shop = [
     Product(
       name: "Product 1",
       price: 99.99,
-      description: "Item description",
+      description:
+          "Item description.. more description..Item description.. more description",
     ),
     Product(
       name: "Product 2",
@@ -47,10 +49,12 @@ class Shop {
   //add item to cart
   void addToCart(Product item) {
     _cart.add(item);
+    notifyListeners(); // exten provider ChangeNotifier
   }
 
   // remove item from cart
   void removeFromCart(Product item) {
     _cart.remove(item);
+    notifyListeners(); // exten provider ChangeNotifier
   }
 }
