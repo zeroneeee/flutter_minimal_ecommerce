@@ -77,13 +77,29 @@ class CartPage extends StatelessWidget {
                       final Product item = cart[index];
 
                       // return as a cart tile UI
-                      return ListTile(
-                          title: Text(item.name),
-                          subtitle: Text(item.price.toStringAsFixed(2)),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.remove),
-                            onPressed: () => removeItemFromCart(context, item),
-                          ));
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                          child: ListTile(
+                              leading: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: Image.asset(item.imagePath)),
+                              title: Text(item.name),
+                              subtitle: Text(item.price.toStringAsFixed(2)),
+                              trailing: IconButton(
+                                icon: const Icon(Icons.remove),
+                                onPressed: () =>
+                                    removeItemFromCart(context, item),
+                              )),
+                        ),
+                      );
                     },
                   ),
           ),
