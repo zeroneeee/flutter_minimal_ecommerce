@@ -30,10 +30,12 @@ class CustomDrawer extends StatelessWidget {
 
               // cart title
               CustomListTitle(
-                text: "Shop",
-                icon: Icons.home,
-                onTap: () => Navigator.pop(context),
-              ),
+                  text: "Shop",
+                  icon: Icons.home,
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/shop_page');
+                  }),
 
               // cart title
               CustomListTitle(

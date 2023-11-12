@@ -12,28 +12,29 @@ class ProductTile extends StatelessWidget {
   void addToCart(BuildContext context) {
     // Show a dialog box to ask user to confirm to add to cart
     showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-              content: const Text("Add this item to your cart?"),
-              actions: [
-                // cancel button
-                MaterialButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text("Cancel"),
-                ),
+      context: context,
+      builder: (context) => AlertDialog(
+        content: const Text("Add this item to your cart?"),
+        actions: [
+          // cancel button
+          MaterialButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("Cancel"),
+          ),
 
-                // yes button
-                MaterialButton(
-                  onPressed: () {
-                    // pop dialog box
-                    Navigator.pop(context);
-                    // add to cart
-                    context.read<Shop>().addToCart(product);
-                  },
-                  child: const Text("Yes"),
-                ),
-              ],
-            ));
+          // yes button
+          MaterialButton(
+            onPressed: () {
+              // pop dialog box
+              Navigator.pop(context);
+              // add to cart
+              context.read<Shop>().addToCart(product);
+            },
+            child: const Text("Yes"),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -62,7 +63,7 @@ class ProductTile extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12)),
                   padding: const EdgeInsets.all(25),
                   width: double.infinity,
-                  child: const Icon(Icons.favorite),
+                  child: Image.asset(product.imagePath),
                 ),
               ),
 
